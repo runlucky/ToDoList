@@ -1,32 +1,13 @@
 //
-//  ContentView.swift
+//  ItemView.swift
 //  ToDoList
 //
-//  Created by H5267 on 2020/12/29.
+//  Created by H5267 on 2020/12/30.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Item(true)
-            Item(true)
-            Item(false)
-            Item(false)
-
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
-
-internal struct Item: View {
+internal struct ItemView: View {
     private var checked: Bool
 
     internal init(_ checked: Bool) {
