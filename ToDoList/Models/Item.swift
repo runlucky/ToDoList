@@ -19,6 +19,6 @@ internal struct Item: Codable {
     }
 
     internal var description: String {
-        "\(checked): \(title)"
+        "[\(checked ? "x" : " ")] \(title)"
     }
 }

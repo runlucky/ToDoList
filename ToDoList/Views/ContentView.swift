@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    private let itemStrage: IItemStrage
+    private let ItemList: itemList
 
-    internal init(_ itemStrage: IItemStrage) {
-        self.itemStrage = itemStrage
+    internal init(_ itemList: ItemList) {
+        self.itemList = itemList
     }
 
     internal var body: some View {
@@ -43,3 +43,15 @@ struct ContentView_Previews: PreviewProvider {
 
 
 
+
+
+internal class ItemList: ObservableObject {
+    @Published internal var items: [Item] = []
+    private let itemStrage: IItemStrage
+
+    internal init(_ itemStrage: IItemStrage) {
+        self.itemStrage = itemStrage
+        items = (try? self.itemStrage.getAll()) ?? []
+    }
+
+}
