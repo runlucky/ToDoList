@@ -15,7 +15,7 @@
 		789FD150259CB75800630153 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD14F259CB75800630153 /* UserSettings.swift */; };
 		789FD154259CBA2200630153 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD153259CBA2200630153 /* Item.swift */; };
 		789FD158259CBA8E00630153 /* IItemStrage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD157259CBA8E00630153 /* IItemStrage.swift */; };
-		789FD15C259CBE0500630153 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD15B259CBE0500630153 /* DIContainer.swift */; };
+		789FD162259CC56000630153 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD161259CC56000630153 /* Codable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		789FD14F259CB75800630153 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		789FD153259CBA2200630153 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		789FD157259CBA8E00630153 /* IItemStrage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IItemStrage.swift; sourceTree = "<group>"; };
-		789FD15B259CBE0500630153 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		789FD161259CC56000630153 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +64,7 @@
 			children = (
 				789FD149259CB6E800630153 /* Views */,
 				789FD156259CBA3E00630153 /* Models */,
+				789FD15F259CC54600630153 /* Utilities */,
 				789FD14E259CB74200630153 /* Enviroments */,
 				780F7027259B5B2000062EB5 /* ToDoListApp.swift */,
 				780F702B259B5B2200062EB5 /* Assets.xcassets */,
@@ -93,7 +94,6 @@
 		789FD14E259CB74200630153 /* Enviroments */ = {
 			isa = PBXGroup;
 			children = (
-				789FD15B259CBE0500630153 /* DIContainer.swift */,
 				789FD14F259CB75800630153 /* UserSettings.swift */,
 			);
 			path = Enviroments;
@@ -106,6 +106,14 @@
 				789FD157259CBA8E00630153 /* IItemStrage.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		789FD15F259CC54600630153 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				789FD161259CC56000630153 /* Codable.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,12 +185,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				789FD15C259CBE0500630153 /* DIContainer.swift in Sources */,
 				789FD154259CBA2200630153 /* Item.swift in Sources */,
 				789FD150259CB75800630153 /* UserSettings.swift in Sources */,
 				789FD158259CBA8E00630153 /* IItemStrage.swift in Sources */,
 				780F702A259B5B2000062EB5 /* ContentView.swift in Sources */,
 				789FD14B259CB70200630153 /* ItemView.swift in Sources */,
+				789FD162259CC56000630153 /* Codable.swift in Sources */,
 				780F7028259B5B2000062EB5 /* ToDoListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,20 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
+    private let itemStrage: IItemStrage
+
+    internal init(_ itemStrage: IItemStrage) {
+        self.itemStrage = itemStrage
+    }
+
+    internal var body: some View {
         VStack {
             ItemView(true)
             ItemView(true)
             ItemView(false)
             ItemView(false)
+            Button("set") {
+                try? itemStrage.upsert(Item(true, "hoge\(Date())"))
+            }
+            Button("print") {
+                guard let items = try? itemStrage.getAll() else { return }
+                items.forEach { item in
+                    print(item.description)
 
+                }
+
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(UserSettings.shared)
     }
 }
 

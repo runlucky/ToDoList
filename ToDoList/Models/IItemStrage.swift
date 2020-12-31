@@ -8,8 +8,8 @@
 
 internal protocol IItemStrage {
     func getAll() throws -> [Item]
-    func upsert(item: Item) throws
-    func delete(item: Item) throws
+    func upsert(_ item: Item) throws
+    func delete(_ item: Item) throws
 }
 
 
