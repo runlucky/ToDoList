@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19767692259EB4130003FD61 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19767691259EB4120003FD61 /* ItemList.swift */; };
 		780F7028259B5B2000062EB5 /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F7027259B5B2000062EB5 /* ToDoListApp.swift */; };
 		780F702A259B5B2000062EB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F7029259B5B2000062EB5 /* ContentView.swift */; };
 		780F702C259B5B2200062EB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 780F702B259B5B2200062EB5 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19767691259EB4120003FD61 /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		780F7024259B5B2000062EB5 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		780F7027259B5B2000062EB5 /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		780F7029259B5B2000062EB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19767690259EB3D00003FD61 /* ObservableObjects */ = {
+			isa = PBXGroup;
+			children = (
+				19767691259EB4120003FD61 /* ItemList.swift */,
+			);
+			path = ObservableObjects;
+			sourceTree = "<group>";
+		};
 		780F701B259B5B2000062EB5 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +72,7 @@
 		780F7026259B5B2000062EB5 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				19767690259EB3D00003FD61 /* ObservableObjects */,
 				789FD149259CB6E800630153 /* Views */,
 				789FD156259CBA3E00630153 /* Models */,
 				789FD15F259CC54600630153 /* Utilities */,
@@ -189,6 +200,7 @@
 				789FD150259CB75800630153 /* UserSettings.swift in Sources */,
 				789FD158259CBA8E00630153 /* IItemStrage.swift in Sources */,
 				780F702A259B5B2000062EB5 /* ContentView.swift in Sources */,
+				19767692259EB4130003FD61 /* ItemList.swift in Sources */,
 				789FD14B259CB70200630153 /* ItemView.swift in Sources */,
 				789FD162259CC56000630153 /* Codable.swift in Sources */,
 				780F7028259B5B2000062EB5 /* ToDoListApp.swift in Sources */,

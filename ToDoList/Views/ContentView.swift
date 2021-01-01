@@ -8,50 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
-    private let ItemList: itemList
-
+    @ObservedObject private var itemList: ItemList
     internal init(_ itemList: ItemList) {
         self.itemList = itemList
     }
 
     internal var body: some View {
         VStack {
-            ItemView(true)
-            ItemView(true)
-            ItemView(false)
-            ItemView(false)
+            ForEach(itemList.items, id: \.id) { item in
+                ItemView(item)
+            }
             Button("set") {
-                try? itemStrage.upsert(Item(true, "hoge\(Date())"))
+                try? itemList.upsert(Item(true, "hoge\(Date())"))
             }
-            Button("print") {
-                guard let items = try? itemStrage.getAll() else { return }
-                items.forEach { item in
-                    print(item.description)
 
-                }
-
-            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(UserSettings.shared)
+        ContentView(ItemList(UserSettings.shared))
     }
 }
 
 
-
-
-
-internal class ItemList: ObservableObject {
-    @Published internal var items: [Item] = []
-    private let itemStrage: IItemStrage
-
-    internal init(_ itemStrage: IItemStrage) {
-        self.itemStrage = itemStrage
-        items = (try? self.itemStrage.getAll()) ?? []
-    }
-
-}

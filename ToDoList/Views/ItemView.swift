@@ -8,10 +8,12 @@
 import SwiftUI
 
 internal struct ItemView: View {
-    private var checked: Bool
+    private let checked: Bool
+    private let title: String
 
-    internal init(_ checked: Bool) {
-        self.checked = checked
+    internal init(_ item: Item) {
+        checked = item.checked
+        title = item.title
     }
 
     internal var body: some View {
@@ -27,7 +29,7 @@ internal struct ItemView: View {
                     .font(Font.headline.weight(.ultraLight))
                     .foregroundColor(.gray)
             }
-            Text("hogehoge")
+            Text(title)
         }
     }
 
