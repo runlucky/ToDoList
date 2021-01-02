@@ -14,14 +14,19 @@ struct ContentView: View {
     }
 
     internal var body: some View {
-        VStack {
-            ForEach(itemList.items, id: \.id) { item in
-                ItemView(item)
+        NavigationView {
+            List {
+                ForEach(itemList.items, id: \.id) { item in
+                    ItemView(item)
+                }.onDelete { index in
+                   try? itemList.delete(atOffsets: index)
+                }
             }
-            Button("set") {
-                try? itemList.upsert(Item(true, "hoge\(Date())"))
-            }
-
+            .navigationBarItems(trailing:
+                Button("Add") {
+                    try? itemList.upsert(Item.blank)
+                }
+            )
         }
     }
 }

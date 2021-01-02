@@ -33,6 +33,10 @@ extension UserSettings: IItemStrage {
     }
 
     internal func delete(_ item: Item) throws {
-        fatalError("not implemented")
+        var items = try getAll()
+        items.removeAll { $0.id == item.id }
+        
+        let data = try items.encode()
+        userDefaults.set(data, forKey: key)
     }
 }

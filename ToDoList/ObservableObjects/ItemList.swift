@@ -25,7 +25,9 @@ internal class ItemList: ObservableObject {
         items = load()
     }
     
-    internal func delete(_ item: Item) throws {
-        fatalError("not implemented")
+    internal func delete(atOffsets offsets: IndexSet) throws {
+        guard let index = offsets.first else { return }
+        try itemStrage.delete(items[index])
+        items.remove(atOffsets: offsets)
     }
 }
