@@ -29,6 +29,6 @@ internal class ItemList: ObservableObject {
         guard let index = offsets.first else { return }
         let sorted = items.sorted { $0.create }
         try itemStrage.delete(sorted[index])
-        items.remove(atOffsets: offsets)
+        items = load()
     }
 }
