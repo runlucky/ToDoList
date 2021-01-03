@@ -10,10 +10,12 @@ import SwiftUI
 internal struct ItemView: View {
     private let checked: Bool
     private let title: String
+    private let onTapped: () -> Void
 
-    internal init(_ item: Item) {
+    internal init(_ item: Item, onTapped: @escaping () -> Void) {
         checked = item.checked
         title = item.title
+        self.onTapped = onTapped
     }
 
     internal var body: some View {
@@ -28,6 +30,8 @@ internal struct ItemView: View {
                 Image(systemName: "square")
                     .font(Font.headline.weight(.ultraLight))
                     .foregroundColor(.gray)
+            }.onTapGesture {
+                onTapped()
             }
             Text(title)
         }

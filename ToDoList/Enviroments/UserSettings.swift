@@ -26,10 +26,12 @@ extension UserSettings: IItemStrage {
     }
 
     internal func upsert(_ item: Item) throws {
-        let items = try getAll() + [item]
+        var items = try getAll()
+        items.removeAll { $0.id == item.id }
+        items += [item]
+        
         let data = try items.encode()
         userDefaults.set(data, forKey: key)
-        // insertしかしてない
     }
 
     internal func delete(_ item: Item) throws {

@@ -15,14 +15,26 @@ internal struct Item: Codable {
     internal static var blank: Item {
         Item(false, "")
     }
+    
+    internal var description: String {
+        "[\(checked ? "x" : " ")] \(title)"
+    }
 
     internal init(_ checked: Bool, _ title: String) {
         self.id = UUID()
         self.checked = checked
         self.title = title
     }
+    
+    private init(_ id: UUID, _ checked: Bool, _ title: String) {
+        self.id = id
+        self.checked = checked
+        self.title = title
+    }
 
-    internal var description: String {
-        "[\(checked ? "x" : " ")] \(title)"
+    internal func update(_ checked: Bool? = nil, _ title: String? = nil) -> Item {
+        let checked = checked ?? self.checked
+        let title = title ?? self.title
+        return Item(id, checked, title)
     }
 }

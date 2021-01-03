@@ -17,7 +17,9 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(itemList.items, id: \.id) { item in
-                    ItemView(item)
+                    ItemView(item) {
+                        try? itemList.upsert(item.update(!item.checked))
+                    }
                 }.onDelete { index in
                    try? itemList.delete(atOffsets: index)
                 }
