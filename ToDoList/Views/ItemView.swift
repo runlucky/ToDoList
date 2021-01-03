@@ -8,14 +8,10 @@
 import SwiftUI
 
 internal struct ItemView: View {
-    private let checked: Bool
-    private let title: String
-    private let onTapped: () -> Void
+    @ObservedObject private var item: Item
 
-    internal init(_ item: Item, onTapped: @escaping () -> Void) {
-        checked = item.checked
-        title = item.title
-        self.onTapped = onTapped
+    internal init(_ item: Item) {
+        self.item = item
     }
 
     internal var body: some View {
@@ -23,7 +19,7 @@ internal struct ItemView: View {
             ZStack {
                 Image(systemName: "square.fill")
                     .foregroundColor(.white)
-                if checked {
+                if item.checked {
                     Image(systemName: "checkmark.square.fill")
                         .foregroundColor(.blue)
                 }
@@ -31,9 +27,9 @@ internal struct ItemView: View {
                     .font(Font.headline.weight(.ultraLight))
                     .foregroundColor(.gray)
             }.onTapGesture {
-                onTapped()
+                item.checked.toggle()
             }
-            Text(title)
+            TextField("", text: $item.title)
         }
     }
 

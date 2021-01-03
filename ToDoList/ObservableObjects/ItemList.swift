@@ -27,7 +27,8 @@ internal class ItemList: ObservableObject {
     
     internal func delete(atOffsets offsets: IndexSet) throws {
         guard let index = offsets.first else { return }
-        try itemStrage.delete(items[index])
+        let sorted = items.sorted { $0.create }
+        try itemStrage.delete(sorted[index])
         items.remove(atOffsets: offsets)
     }
 }
