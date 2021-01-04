@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @ObservedObject private var itemList: ItemList
-    internal init(_ itemList: ItemList) {
-        self.itemList = itemList
+struct ItemListView: View {
+    @ObservedObject private var viewModel: ItemListViewModel
+    internal init(_ viewModel: ItemListViewModel) {
+        self.viewModel = viewModel
     }
 
     internal var body: some View {
         NavigationView {
             List {
-                ForEach(itemList.items.sorted { $0.create }, id: \.id) { item in
+                ForEach(viewModel.items.sorted { $0.create }, id: \.id) { item in
                     ItemView(item)
                 }.onDelete { index in
-                   try? itemList.delete(atOffsets: index)
+                   try? viewModel.delete(atOffsets: index)
                 }
             }
             .navigationBarItems(trailing:
                 Button("Add") {
-                    try? itemList.upsert(Item.blank)
+                    try? viewModel.upsert(ItemViewModel.blank)
                 }
             )
         }
@@ -33,7 +33,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(ItemList(UserSettings.shared))
+        ItemListView(ItemListViewModel())
     }
 }
 

@@ -12,20 +12,14 @@ internal struct UserSettings {
     private let userDefaults = UserDefaults.standard
     private init(){}
 
-    private func exists(_ key: String) -> Bool {
-        userDefaults.object(forKey: key) != nil
-    }
-}
-
-extension UserSettings: IItemStrage {
     private var key: String { "itemStrage" }
 
-    internal func getAll() throws -> [Item] {
+    internal func getAll() throws -> [ItemViewModel] {
         guard let data = userDefaults.data(forKey: key) else { return [] }
-        return try data.decode([Item].self)
+        return try data.decode([ItemViewModel].self)
     }
 
-    internal func upsert(_ item: Item) throws {
+    internal func upsert(_ item: ItemViewModel) throws {
         var items = try getAll()
         items.removeAll { $0.id == item.id }
         items += [item]
@@ -34,7 +28,7 @@ extension UserSettings: IItemStrage {
         userDefaults.set(data, forKey: key)
     }
 
-    internal func delete(_ item: Item) throws {
+    internal func delete(_ item: ItemViewModel) throws {
         var items = try getAll()
         items.removeAll { $0.id == item.id }
         

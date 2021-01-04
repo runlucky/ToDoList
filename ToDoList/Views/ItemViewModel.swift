@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal class Item: ObservableObject, Codable {
+internal class ItemViewModel: ObservableObject, Codable {
     internal let id: UUID
     internal let create: Date
 
@@ -22,8 +22,8 @@ internal class Item: ObservableObject, Codable {
         }
     }
     
-    internal static var blank: Item {
-        Item(false, "")
+    internal static var blank: ItemViewModel {
+        ItemViewModel(false, "")
     }
     
     internal var description: String {
@@ -44,10 +44,10 @@ internal class Item: ObservableObject, Codable {
         self.title = title
     }
 
-    internal func update(_ checked: Bool? = nil, _ title: String? = nil) -> Item {
+    internal func update(_ checked: Bool? = nil, _ title: String? = nil) -> ItemViewModel {
         let checked = checked ?? self.checked
         let title = title ?? self.title
-        return Item(id, checked, title)
+        return ItemViewModel(id, checked, title)
     }
 
     internal enum CodingKeys: CodingKey {

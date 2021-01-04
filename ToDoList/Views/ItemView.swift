@@ -8,10 +8,10 @@
 import SwiftUI
 
 internal struct ItemView: View {
-    @ObservedObject private var item: Item
+    @ObservedObject private var item: ItemViewModel
 
-    internal init(_ item: Item) {
-        self.item = item
+    internal init(_ viewModel: ItemViewModel) {
+        self.item = viewModel
     }
 
     internal var body: some View {
