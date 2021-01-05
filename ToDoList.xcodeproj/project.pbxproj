@@ -17,6 +17,7 @@
 		789FD150259CB75800630153 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD14F259CB75800630153 /* UserSettings.swift */; };
 		789FD154259CBA2200630153 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD153259CBA2200630153 /* ItemViewModel.swift */; };
 		789FD162259CC56000630153 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD161259CC56000630153 /* Codable.swift */; };
+		78D7B69325A2E527001BB758 /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D7B69225A2E527001BB758 /* ButtonExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		789FD14F259CB75800630153 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		789FD153259CBA2200630153 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		789FD161259CC56000630153 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		78D7B69225A2E527001BB758 /* ButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				789FD161259CC56000630153 /* Codable.swift */,
 				786F7AAC25A21E040047AA10 /* SequenceExtensions.swift */,
+				78D7B69225A2E527001BB758 /* ButtonExtensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				789FD154259CBA2200630153 /* ItemViewModel.swift in Sources */,
 				786F7AAD25A21E040047AA10 /* SequenceExtensions.swift in Sources */,
 				789FD150259CB75800630153 /* UserSettings.swift in Sources */,
+				78D7B69325A2E527001BB758 /* ButtonExtensions.swift in Sources */,
 				780F702A259B5B2000062EB5 /* ItemListView.swift in Sources */,
 				19767692259EB4130003FD61 /* ItemListViewModel.swift in Sources */,
 				789FD14B259CB70200630153 /* ItemView.swift in Sources */,

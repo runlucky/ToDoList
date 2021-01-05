@@ -17,9 +17,9 @@ struct ItemListView: View {
         NavigationView {
             List {
                 ForEach(viewModel.items.sorted { $0.create }, id: \.id) { item in
-                    ItemView(item)
-                }.onDelete { index in
-                   try? viewModel.delete(atOffsets: index)
+                    ItemView(item) {
+                        try? viewModel.delete(item)
+                    }
                 }
             }
             .navigationBarItems(trailing:
@@ -27,6 +27,14 @@ struct ItemListView: View {
                     try? viewModel.upsert(ItemViewModel.blank)
                 }
             )
+//            HStack {
+//                Button(action: {}) {
+//                    VStack {
+//                        Image(systemName: "arrow.up.arrow.down")
+//                        Text("sort")
+//                    }
+//                }
+//            }
         }
     }
 }

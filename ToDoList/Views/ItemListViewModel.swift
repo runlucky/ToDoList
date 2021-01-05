@@ -22,11 +22,9 @@ internal class ItemListViewModel: ObservableObject {
         try UserSettings.shared.upsert(item)
         items = load()
     }
-    
-    internal func delete(atOffsets offsets: IndexSet) throws {
-        guard let index = offsets.first else { return }
-        let sorted = items.sorted { $0.create }
-        try UserSettings.shared.delete(sorted[index])
+
+    internal func delete(_ item: ItemViewModel) throws {
+        try UserSettings.shared.delete(item)
         items = load()
     }
 }

@@ -8,10 +8,12 @@
 import SwiftUI
 
 internal struct ItemView: View {
-    @ObservedObject private var item: ItemViewModel
+    @ObservedObject private var viewModel: ItemViewModel
+    private let onDelete: () -> Void
 
-    internal init(_ viewModel: ItemViewModel) {
-        self.item = viewModel
+    internal init(_ viewModel: ItemViewModel, onDelete: @escaping () -> Void) {
+        self.viewModel = viewModel
+        self.onDelete = onDelete
     }
 
     internal var body: some View {
@@ -19,7 +21,7 @@ internal struct ItemView: View {
             ZStack {
                 Image(systemName: "square.fill")
                     .foregroundColor(.white)
-                if item.checked {
+                if viewModel.checked {
                     Image(systemName: "checkmark.square.fill")
                         .foregroundColor(.blue)
                 }
@@ -27,9 +29,14 @@ internal struct ItemView: View {
                     .font(Font.headline.weight(.ultraLight))
                     .foregroundColor(.gray)
             }.onTapGesture {
-                item.checked.toggle()
+                viewModel.checked.toggle()
             }
-            TextField("", text: $item.title)
+            TextField("", text: $viewModel.title)
+            Button(action: { onDelete() }) {
+                Image(systemName: "multiply")
+                    .font(Font.headline.weight(.light))
+                    .foregroundColor(.gray)
+            }
         }
     }
 
